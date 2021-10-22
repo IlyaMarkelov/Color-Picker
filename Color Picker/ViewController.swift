@@ -46,11 +46,10 @@ class ViewController: UIViewController {
         
     }
 
-    @IBAction func redSliderAction(_ sender: UISlider) {
+    @IBAction func redSliderAction() {
         setColor()
         redRangeLabel.text = String(format: "%.2f", redSlider.value)
     }
-    
     
     @IBAction func greenSliderAction() {
         setColor()
