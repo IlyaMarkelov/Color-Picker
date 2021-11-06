@@ -132,12 +132,15 @@ extension SettingsViewController: UITextFieldDelegate {
             case 0:
                 redSlider.setValue(floatValue, animated: true)
                 redRangeLabel.text = string(from: redSlider)
+                redTextField.text = string(from: redSlider)
             case 1:
                 greenSlider.setValue(floatValue, animated: true)
                 greenRageLabel.text = string(from: greenSlider)
+                greenTextField.text = string(from: greenSlider)
             case 2:
                 blueSlider.setValue(floatValue, animated: true)
                 blueRageLabel.text = string(from: blueSlider)
+                blueTextField.text = string(from: blueSlider)
             default: break
             }
             
