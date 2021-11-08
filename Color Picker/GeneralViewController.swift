@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate {
+    func setColor(for color: UIColor)
+}
+
 class GeneralViewController: UIViewController {
     
     @IBOutlet var generalView: UIView!

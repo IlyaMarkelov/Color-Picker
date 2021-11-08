@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol SettingsViewControllerDelegate {
-    func setColor(for color: UIColor)
-}
-
 class SettingsViewController: UIViewController {
 
     // MARK: - IB Outlets
@@ -120,34 +116,37 @@ extension SettingsViewController {
     
     private func addDoneButtonKeyboard(for textFields: UITextField...) {
         textFields.forEach { textField in
-            let doneToolbar: UIToolbar = UIToolbar(frame: CGRect.init(
-                x: 0, y: 0,
+            let doneToolbar = UIToolbar(frame: CGRect(
+                x: 0,
+                y: 0,
                 width: UIScreen.main.bounds.width,
-                height: 50))
-                doneToolbar.barStyle = .default
+                height: 50)
+            )
 
-                let flexSpace = UIBarButtonItem(
-                    barButtonSystemItem:
-                    .flexibleSpace,
-                    target: nil,
-                    action: nil)
-                let done: UIBarButtonItem = UIBarButtonItem(
-                        title: "Done",
-                        style: .done,
-                        target: self,
-                        action: #selector(doneButtonAction))
+            let flexSpace = UIBarButtonItem(
+                barButtonSystemItem:.flexibleSpace,
+                target: nil,
+                action: nil
+            )
+            
+            let done = UIBarButtonItem(
+                title: "Done",
+                style: .done,
+                target: self,
+                action: #selector(doneButtonAction)
+            )
 
-                let items = [flexSpace, done]
-                doneToolbar.items = items
-                doneToolbar.sizeToFit()
-                textField.inputAccessoryView = doneToolbar
-                }
+            let items = [flexSpace, done]
+            doneToolbar.items = items
+            doneToolbar.sizeToFit()
+            textField.inputAccessoryView = doneToolbar
         }
+    }
     
     @objc func doneButtonAction(){
         view.endEditing(true)
-        }
     }
+}
 
 
 // MARK: - UITextFieldDelegate
